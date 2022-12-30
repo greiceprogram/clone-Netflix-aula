@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');/*Fontes importadas do google fonts*/
+
+* {
+    margin: 0; 
+    padding: 0; /*espaçamento*/
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+body{
+    background: black;
+}
+header{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;/*espaço entre eles*/
+    align-items: center;
+    padding: 30px 100px;/*30 pixels para direita e 100 pixels para baixo*/
+    z-index: 100;
+}
+
+header .logo img{ /*Logo da Netflix*/
+    max-width: 150px; /*tamanho maximo do logo*/
+}
+
+.navegation{ /*Menu barra de navegação*/
+    display: flex;/*nomes da bara de navegação um ao lado do outro*/
+}
+.navegation li{
+    list-style: none; 
+    margin: 0 10px; /*largura entre os nomes da barra de navegação*/
+}
+
+.navegation li a { /*link da barra de navegação*/
+    color: white;
+    text-decoration: none;
+    font-weight: 500;/*grossura da fonte*/
+    letter-spacing: 1px;
+}
+
+.navegation li:hover a{/*hover mudar a cor ao passar o mouse*/
+    color:red;
+}
+
+.search{/*campo de busca*/
+    position: relative;
+    width: 300px;
+    height: 40px;
+}
+.search input{/*dentro do campo de busca*/
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color:white;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    border-radius: 4px;
+    padding: 0 1px 0 45px;
+    backdrop-filter: blur (10px);
+}
+
+.search input .placeholder{
+    color: white;
+}
+
+.search .fa-search{
+    position: absolute;
+    top: 50%;
+    left:10px;
+    transform: translateY(-50%);
+    padding-right: 50px;/*espaço para o lado */
+    color:white;
+    border-radius: 1px solid #fff;
+}
+
+.banner{ /*imagem de fundo- Mulan*/
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding:0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.banner .bg{ 
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*imagem fica atrás das informações que contém na página*/
+}
+
+.content{
+    position: relative;
+    z-index: 1; /*joga a imagem do nome Mulan para frente do fundo da tela*/
+    max-width: 550px; /*maximo, não ultrapassar o 550px*/
+}
+
+.movieTitle{
+    max-width: 250px;
+}
+
+.banner .content h4 {
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+}
+
+.banner .content h4 span {
+    padding: 0 10px;
+    border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+.banner .content h4 span:first-child {
+    padding-left: 0;
+}
+
+.banner .content h4 span:last-child {
+    border-right: none;
+}
+
+.banner .content h4 span i {
+    background: #de0611;
+    color: #fff;
+    padding: 0 8px;
+    display: inline-block;
+    font-style: normal;
+    border-radius: 2px;
+}
+
+.banner .content p{
+    font-size: 1em;/*1em equivale a 14 a 16 pixels*/
+    font-weight: 300;
+    line-height: 1.5em;
+    color:#fff;
+    margin: 10px 0 20px;
+}
+
+.banner .content .buttons{ /*botão play + my list*/
+    position: relative;
+}
+
+.banner .content .buttons a{
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    background: #de0611;
+    color:#fff;
+    padding: 6px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;/*espaçamento entre as letras*/
+    text-transform: uppercase;
+}
+
+.banner .content .buttons a:nth-child(2) { /*especifica o nome que esta mexendo*/
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.banner .content .buttons a:hover:nth-child(2) { /*deixar vermelho ao passar o mouse*/
+    background: #de0611;
+}
+
+.play {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase; 
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px; /*espaçamento entre as letras*/
+    font-size: 1.2rem;
+    cursor: pointer;/*efeito de clique ao passar o mouse*/
+}
+
+.play img{
+    margin-left: 10px;/*espaçamento para esquerda*/
+    margin-right: 10px;/*espaçamento para direita*/
+    max-width: 50px;
+}
+
+.trailer { /*vídeo do filme*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px); /*deixar o vídeo para tras da imagem*/
+    visibility: hidden; /*visibilidade escondida*/
+    opacity: 0;
+}
+
+.trailer.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.trailer video {
+    max-width: 900px;
+    outline: none;
+}
+
+.trailer .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer; /*passar o mouse por cima e o mesmo aparecer como link */
+    filter: invert(1);
+    max-width: 32px;
+}
+
+@media (max-width: 991px) { /*responsivo para celular*/
+    header {
+        padding: 20px 50px;
+        flex-direction: column;
+    }
+
+    .navigation { /* menu de navegação*/
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 10px 0;
+    }
+
+    .banner { /*fundo da tela*/
+        padding: 100px 50px;
+    }
+
+    .banner .play {
+        left: 50px;
+        font-size: 1em;
+    }
+
+    .play img {
+        margin-right: 10px;
+        max-width: 40px;
+    }
+
+    .trailer video {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px;
+    }
+
+    .search {
+        position: relative;
+        width: calc(100% - 20px);
+        height: 40px;
+    }
+
+    .banner {
+        padding: 220px 20px 100px;
+    }
+
+    .banner .play {
+        left: 20px;
+        font-size: 1em;
+        bottom: 30px;
+    }
