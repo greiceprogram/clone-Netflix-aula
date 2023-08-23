@@ -4,7 +4,7 @@
 
 | Languages |
 |-----------|
-| HTML      |
+| html     |
 | Css       |
 | JavaScript|
 
