@@ -2,11 +2,11 @@
 <details>
 <summary>Technologies e tools </summary>
 
-| Rank | Languages |
-|-----:|-----------|
-|     1| HTML      |
-|     2| CSS       |
-|     3| JavaScript|
+| Languages |
+|-----------|
+| HTML      |
+| Css       |
+| JavaScript|
 
 </details>
 <p float="left">
